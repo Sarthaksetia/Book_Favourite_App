@@ -1,0 +1,29 @@
+.book-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.header-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+  min-width: 320px;
+  max-width: 80rem;
+
+  &__search {
+    padding: 0.75rem;
+    border-radius: 0.25rem;
+    border: 1px solid #ddd;
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__add-book {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+}

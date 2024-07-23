@@ -1,0 +1,41 @@
+/* Button.scss */
+
+.btn {
+  grid-column: span 2;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-align: center;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.primary {
+    background-color: #2c2d2e;
+
+    &:hover {
+      background-color: #1a1b1c;
+    }
+  }
+
+  &.secondary {
+    background-color: red;
+
+    &:hover {
+      background-color: darkred;
+    }
+  }
+
+  &.disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+
+  .btn-icon {
+    margin-right: 8px; // Space between the icon and text
+  }
+}

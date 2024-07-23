@@ -1,0 +1,32 @@
+.book-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 600px;
+  margin: 0 auto;
+
+  .form-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+
+    input,
+    textarea {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    textarea {
+      grid-column: span 2;
+      resize: vertical;
+    }
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem; /* Adds spacing between buttons */
+    margin-top: 16px; /* Adds space above the button container */
+  }
+}

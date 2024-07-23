@@ -1,0 +1,87 @@
+.book-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 20px;
+  max-width: 70rem;
+  margin: 0 auto;
+
+  &__loading,
+  &__error,
+  &__no-book {
+    text-align: center;
+    font-size: 1.25rem;
+    color: #555;
+    margin: 20px;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+      text-align: left;
+    }
+  }
+
+  &__cover {
+    max-width: 40rem;
+    width: 100%;
+    object-fit: contain;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    @media (min-width: 768px) {
+      max-width: 300px;
+      margin-right: 20px;
+    }
+  }
+
+  &__info {
+    max-width: 600px;
+  }
+
+  &__title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  &__author {
+    font-size: 1rem;
+    color: #666;
+    margin: 10px 0;
+  }
+
+  &__description {
+    font-size: 1rem;
+    color: #333;
+    margin: 10px 0;
+  }
+
+  &__publication {
+    font-size: 0.875rem;
+    color: #888;
+    margin-top: 10px;
+  }
+}
+
+.book-detail__back-button {
+  background-color: #f0f0f0;
+  border: none;
+  padding: 10px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.book-detail__back-button:hover {
+  background-color: #e0e0e0;
+}

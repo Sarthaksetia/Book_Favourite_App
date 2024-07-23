@@ -1,0 +1,25 @@
+.favorite-button {
+  background-color: #fff;
+  color: rgb(156 163 175);
+  border: 1px solid rgb(156 163 175);
+  outline: none;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    border: 1px solid rgb(156 163 175);
+  }
+}
+.liked {
+  border: 1px solid rgb(156 163 175);
+  color: rgb(225 29 72);
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    border: 1px solid rgb(156 163 175);
+  }
+}
