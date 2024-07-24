@@ -108,6 +108,9 @@ const Home: React.FC = () => {
   }, []);
 
   const handleEditBook = useCallback((updatedBook: Book) => {
+    setLocalBooks((prevBooks) =>
+      prevBooks.map((book) => (book.id === updatedBook.id ? updatedBook : book))
+    );
     setAllBooks((prevBooks) =>
       prevBooks.map((book) => (book.id === updatedBook.id ? updatedBook : book))
     );
