@@ -1,8 +1,9 @@
-import React, { MouseEvent } from "react";
-import "@styles/_LikeButton.scss";
+import React, { type MouseEvent } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { faHeart as faHeartRegular } from "@fortawesome/free-solid-svg-icons";
+import "@styles/LikeButton.scss";
+
 type FavoriteButtonProps = {
   isFavorite: boolean;
   onClick: (e: MouseEvent<HTMLButtonElement>) => void;

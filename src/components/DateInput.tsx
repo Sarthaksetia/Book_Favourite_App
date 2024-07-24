@@ -5,11 +5,17 @@ type DateInputProps = {
   placeholder?: string;
   register: UseFormRegisterReturn;
   required?: boolean;
+  className?: string;
 };
 
-const DateInput: FC<DateInputProps> = ({ placeholder, register, required }) => (
+const DateInput: FC<DateInputProps> = ({
+  placeholder,
+  register,
+  required,
+  className = "",
+}) => (
   <input
-    className="input--text"
+    className={className}
     type="date"
     placeholder={placeholder}
     {...register}

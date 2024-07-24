@@ -1,13 +1,14 @@
-import React, { ChangeEvent, useCallback, useMemo } from "react";
-import BookCard from "./BookCard";
-import Pagination from "./Pagination";
-
-import "@styles/BookList.scss";
-import Button from "./Button";
+import React, { type ChangeEvent, useCallback, useMemo } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
-import { Book } from "../utils/types";
-import BookCardLoader from "./shimmers/BookCardLoader";
+
+import BookCard from "@components/BookCard";
+import Pagination from "@components/Pagination";
+import BookCardLoader from "@components/shimmers/BookCardLoader";
+import Button from "@components/Button";
+
+import type { Book } from "@utils/types";
+import "@styles/BookList.scss";
 
 type BookListProps = {
   favorites: number[];
@@ -23,6 +24,7 @@ type BookListProps = {
   currentPage: number;
   setCurrentPage: (page: number) => void;
 };
+const booksPerPage = 5;
 
 const BookList: React.FC<BookListProps> = ({
   favorites,
@@ -38,8 +40,6 @@ const BookList: React.FC<BookListProps> = ({
   currentPage,
   setCurrentPage,
 }) => {
-  const booksPerPage = 5;
-
   const currentBooks = useMemo(() => {
     const indexOfLastBook = currentPage * booksPerPage;
     const indexOfFirstBook = indexOfLastBook - booksPerPage;
@@ -95,6 +95,8 @@ const BookList: React.FC<BookListProps> = ({
               editModalOpen={editModalOpen}
             />
           ))
+        ) : searchQuery ? (
+          <div>No book found for "{searchQuery}"</div>
         ) : (
           <BookCardLoader />
         )}

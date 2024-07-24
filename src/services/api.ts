@@ -1,4 +1,4 @@
-import { Book } from "@utils/types";
+import type { Book } from "@utils/types";
 
 const API_BASE_URL = "https://my-json-server.typicode.com/cutamar/mock";
 

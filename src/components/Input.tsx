@@ -7,6 +7,7 @@ type InputProps = {
   register: UseFormRegisterReturn;
   required?: boolean;
   autoFocus?: boolean;
+  className?: string;
 };
 
 const Input: FC<InputProps> = ({
@@ -14,10 +15,11 @@ const Input: FC<InputProps> = ({
   placeholder,
   register,
   required,
+  className = "",
   autoFocus = false,
 }) => (
   <input
-    className="input--text"
+    className={className}
     type={type}
     placeholder={placeholder}
     {...register}

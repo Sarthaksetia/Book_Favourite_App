@@ -48,20 +48,20 @@
       margin: 0.5rem 0;
       color: #666;
     }
-  }
 
-  &__content__author {
-    font-size: 0.75rem;
-  }
+    &__author {
+      font-size: 0.75rem;
+    }
 
-  &__content__description {
-    // width: 100%;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 4; /* Number of lines to show */
-    overflow: hidden;
-    text-overflow: ellipsis;
+    &__description {
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 4;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      word-break: break-word;
+    }
   }
 
   &__actions {

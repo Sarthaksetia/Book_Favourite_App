@@ -1,11 +1,17 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import React, {
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Modal from "@components/ModalComponent";
 import BookForm from "@components/BookForm";
 import DeleteModal from "@components/DeleteModal";
 import BookList from "@components/BookList";
 
-import { useBookContext } from "@contexts/BookContext";
+import { BookContext } from "@contexts/BookContext";
 
 import { formatDate } from "@utils/date";
 import useLocalStorage from "@utils/useLocalStorage";
@@ -27,7 +33,7 @@ const Home: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const { books, loading, error } = useBookContext();
+  const { books, loading, error } = useContext(BookContext);
 
   useEffect(() => {
     if (books) {
@@ -84,8 +90,6 @@ const Home: React.FC = () => {
     [setFavorites]
   );
 
-  console.log(favorites, "testing fav");
-
   const handleAddBook = useCallback(
     (book: Omit<Book, "id">) => {
       const newBook = { id: Date.now(), ...book };
@@ -120,9 +124,17 @@ const Home: React.FC = () => {
 
   const handleDeleteBook = useCallback(() => {
     if (bookToDelete) {
-      setAllBooks((prevBooks) =>
+      const remainingBooks = filteredBooks.filter(
+        (book) => book.id !== bookToDelete
+      );
+      setLocalBooks((prevBooks: Book[]) =>
         prevBooks.filter((book) => book.id !== bookToDelete)
       );
+      setAllBooks(remainingBooks);
+      if (remainingBooks.length % 5 === 0) {
+        setCurrentPage(remainingBooks.length / 5);
+        navigate(`?page=${remainingBooks.length / 5}`);
+      }
       setBookToDelete(null);
       setDeleteModalOpen(false);
     }

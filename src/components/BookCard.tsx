@@ -6,8 +6,8 @@ import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 import FavoriteButton from "@components/FavoriteButton";
 import Image from "@components/Image";
 
-import { Book } from "@utils/types";
 import { formatDateToRender } from "@utils/date";
+import type { Book } from "@utils/types";
 
 import "@styles/BookCard.scss";
 

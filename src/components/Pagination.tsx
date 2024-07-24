@@ -1,10 +1,10 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronLeft,
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
-import { useNavigate } from "react-router-dom";
 import "@styles/Pagination.scss";
 
 type PaginationProps = {
@@ -26,7 +26,7 @@ const Pagination: React.FC<PaginationProps> = ({
   const handlePageChange = (pageNumber: number) => {
     if (pageNumber >= 1 && pageNumber <= totalPages) {
       paginate(pageNumber);
-      navigate(`?page=${pageNumber}`); // Update URL with the new page number
+      navigate(`?page=${pageNumber}`);
     }
   };
 

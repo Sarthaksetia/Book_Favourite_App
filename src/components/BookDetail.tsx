@@ -1,25 +1,21 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useMemo } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 import Image from "@components/Image";
 
-import { Book } from "@utils/types";
 import useFetch from "@utils/useFetch";
 import useLocalStorage from "@utils/useLocalStorage";
 import { formatDateToRender } from "@utils/date";
+import type { Book } from "@utils/types";
 
 import "@styles/BookDetails.scss";
-// import BookDetailShimmer from "./shimmers/BookDetailShimmer";
-import BookDetailLoader from "./shimmers/BookDetailLoader";
-// import BookDetailShimmer from "./shimmers/BookDetailShimmer";
 
 const BookDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const navigate = useNavigate(); // Add useNavigate hook
+  const navigate = useNavigate();
 
-  const { data, loading, error } = useFetch<Book>(`/books/${id}`);
+  const { data, error } = useFetch<Book>(`/books/${id}`);
   const [localBooks] = useLocalStorage<Book[]>("localBooks", []);
-  const [isLoading, setIsLoading] = useState(true);
 
   const book = useMemo(() => {
     const localBook = localBooks.find((book: Book) => book.id == +id);
@@ -31,25 +27,17 @@ const BookDetail: React.FC = () => {
     }
   }, [data, error, localBooks, id]);
 
-  useEffect(() => {
-    if (loading) return;
-    else if (error && book?.id) setIsLoading(false);
-    else if (!error && book) setIsLoading(false);
-  }, [loading, book, error]);
-
   const handleBack = () => {
     navigate(-1);
   };
 
-  console.log("HERE", isLoading);
-  if (isLoading) return <BookDetailLoader />;
-
+  if (!book && !error) return <div>Loading...</div>;
   return (
     <div className="book-detail">
       <button className="book-detail__back-button" onClick={handleBack}>
         &larr; Back
       </button>
-      {!book ? (
+      {!book && error ? (
         <div className="book-detail__no-book">No book found</div>
       ) : (
         <div className="book-detail__content">

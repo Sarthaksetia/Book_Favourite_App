@@ -1,6 +1,6 @@
-import React, { MouseEvent } from "react";
-import Button from "./Button"; // Ensure the path is correct
-import Modal from "./ModalComponent";
+import React, { type MouseEvent } from "react";
+import Button from "@components/Button";
+import Modal from "@components/ModalComponent";
 import "@styles/Modal.scss";
 
 type DeleteModalProps = {
@@ -18,7 +18,7 @@ const DeleteModal: React.FC<DeleteModalProps> = ({
     <Modal open={open} onClose={onClose}>
       <div className="delete-modal-content">
         <p>Are you sure you want to delete this book?</p>
-        <div className="delete-modal-buttons">
+        <div className="delete-modal-content__buttons">
           <Button variant="primary" onClick={onConfirm}>
             Confirm
           </Button>

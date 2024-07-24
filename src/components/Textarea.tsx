@@ -5,11 +5,17 @@ type TextareaProps = {
   placeholder?: string;
   register: UseFormRegisterReturn;
   required?: boolean;
+  className?: string;
 };
 
-const Textarea: FC<TextareaProps> = ({ placeholder, register, required }) => (
+const Textarea: FC<TextareaProps> = ({
+  placeholder,
+  register,
+  required,
+  className = "",
+}) => (
   <textarea
-    className="input--text"
+    className={className}
     placeholder={placeholder}
     {...register}
     required={required}

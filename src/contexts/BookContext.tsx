@@ -1,5 +1,5 @@
-import React, { createContext, ReactNode, useContext } from "react";
-import { Book } from "@utils/types";
+import React, { createContext, type ReactNode } from "react";
+import type { Book } from "@utils/types";
 import useFetch from "@utils/useFetch";
 
 type BookContextProps = {
@@ -8,7 +8,9 @@ type BookContextProps = {
   error: string | null;
 };
 
-const BookContext = createContext<BookContextProps | undefined>(undefined);
+export const BookContext = createContext<BookContextProps | undefined>(
+  undefined
+);
 
 export const BookProvider: React.FC<{ children: ReactNode }> = ({
   children,
@@ -20,12 +22,4 @@ export const BookProvider: React.FC<{ children: ReactNode }> = ({
       {children}
     </BookContext.Provider>
   );
-};
-
-export const useBookContext = (): BookContextProps => {
-  const context = useContext(BookContext);
-  if (context === undefined) {
-    throw new Error("useBookContext must be used within a BookProvider");
-  }
-  return context;
 };

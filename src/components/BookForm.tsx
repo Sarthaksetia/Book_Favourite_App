@@ -1,12 +1,14 @@
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
-import Input from "../components/Input";
-import Textarea from "../components/Textarea";
-import DateInput from "../components/DateInput";
+
+import Input from "@components/Input";
+import Textarea from "@components/Textarea";
+import DateInput from "@components/DateInput";
+import Button from "@components/Button";
+
+import type { Book } from "@utils/types";
+
 import "@styles/BookForm.scss";
-import Button from "./Button";
-import "@styles/Button.scss";
-import { Book } from "../utils/types";
 
 type FormValues = Omit<Book, "id">;
 
