@@ -4,6 +4,9 @@
 
 The Book App is a user-friendly application designed to help book enthusiasts keep track of their favorite books. Users can browse through a collection of books, mark their favorites, and easily manage their reading list. The app leverages modern web development technologies to provide a seamless and engaging user experience.
 
+<img width="1440" alt="Screenshot 2024-07-24 at 1 03 44 PM" src="https://github.com/user-attachments/assets/23852a72-f243-4ac1-94f0-e2f089ebc00c">
+
+
 ### Features
 
 Browse Books: Explore a collection of books with detailed information including title, author, description, cover image, and publication date.
